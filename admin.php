@@ -84,7 +84,7 @@ if(isset($message)){
 <?php include 'header.php'; ?>
 
 <div class="container">
-
+<!--product adding section-->
 <section>
 
 <form action="" method="post" class="add-product-form" enctype="multipart/form-data">
@@ -96,7 +96,7 @@ if(isset($message)){
 </form>
 
 </section>
-
+<!-- added products list-->
 <section class="display-product-table">
 
    <table>
@@ -120,7 +120,8 @@ if(isset($message)){
             <td><img src="uploaded_img/<?php echo $row['image']; ?>" height="100" alt=""></td>
             <td><?php echo $row['name']; ?></td>
             <td>$<?php echo $row['price']; ?>/-</td>
-            <td>
+            
+            <td><!--delete and update buttons-->
                <a href="admin.php?delete=<?php echo $row['id']; ?>" class="delete-btn" onclick="return confirm('are your sure you want to delete this?');"> <i class="fas fa-trash"></i> delete </a>
                <a href="admin.php?edit=<?php echo $row['id']; ?>" class="option-btn"> <i class="fas fa-edit"></i> update </a>
             </td>
@@ -147,7 +148,7 @@ if(isset($message)){
       if(mysqli_num_rows($edit_query) > 0){
          while($fetch_edit = mysqli_fetch_assoc($edit_query)){
    ?>
-
+<!--product update to the products list -->
    <form action="" method="post" enctype="multipart/form-data">
       <img src="uploaded_img/<?php echo $fetch_edit['image']; ?>" height="200" alt="">
       <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['id']; ?>">
